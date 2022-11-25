@@ -21,7 +21,7 @@ const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
       </Head>
       {/* DB_CONNECT: {process.env.DB_CONNECT}
       <hr /> */}
-      {/* {JSON.stringify(characters)} */}
+      {/* {JSON.stringify(charac ters)} */}
       {characters.map((character) => {
         return (
           <div key={character.id}>
