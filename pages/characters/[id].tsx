@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Layout from "../../components/Layout";
 import imageLoader from "../../imageLoader";
 import { Character, GetCharacterResults } from "../../types";
 
@@ -21,6 +22,10 @@ function CharacterPage({ character }: { character: Character }) {
     </div>
   );
 }
+
+CharacterPage.getLayout = function getLayout(page: typeof CharacterPage) {
+  return <Layout>{page}</Layout>;
+};
 
 // create anonymous function
 // now if you console log character, you will only see the logs in the terminal and not in the browser
