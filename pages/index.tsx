@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 import imageLoader from "../imageLoader";
 import styles from "../styles/Home.module.css";
@@ -9,6 +10,7 @@ import { Character, GetCharacterResults } from "../types";
  *
  * Characters is a type of Character, and its going to be an array of characters
  */
+
 const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
   return (
     <div className={styles.container}>
@@ -21,7 +23,9 @@ const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
       {characters.map((character) => {
         return (
           <div key={character.id}>
-            {character.name}
+            <Link href={`/characters/${character.id}`}>
+              <h3>{character.name}</h3>
+            </Link>
             <Image
               loader={imageLoader} // needed if you want to build
               unoptimized // we don't want nextJS to optimize these because they are already hosted
